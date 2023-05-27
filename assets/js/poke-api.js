@@ -21,7 +21,7 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     pokemon.moves = moves;
 
     pokemon.height = pokeDetail.height / 10;
-    pokemon.weight = pokeDetail.wheight / 10;
+    pokemon.weight = pokeDetail.weight / 10;
 
     return pokemon
 }

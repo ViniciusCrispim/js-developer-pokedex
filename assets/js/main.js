@@ -12,17 +12,18 @@ let offset = 0;
 function convertPokemonToLi(pokemon) {
     return `
         <li class="pokemon ${pokemon.type}">
-            <button id="openModalBtn" onclick="openModal('${pokemon.number}')" type="button">Abrir modal</button>
-            <span class="number">#${pokemon.number}</span>
-            <span class="name">${pokemon.name}</span>
-
+            <div class="header">
+                <span class="number">#${pokemon.number}</span>
+                <span class="name">${pokemon.name}</span>
+                <button id="openModalBtn" onclick="openModal('${pokemon.number}')" class="modalBtn" type="button">i</button>
+            </div>
             <div class="detail">
                 <ol class="types">
                     ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
                 </ol>
 
                 <img src="${pokemon.photo}"
-                     alt="${pokemon.name}">
+                    alt="${pokemon.name}">
             </div>
         </li>
     `
@@ -30,27 +31,32 @@ function convertPokemonToLi(pokemon) {
 
 function convertPokemontoModal(pokemon){
     return `
-        <div id="modal-content" class="pokemon.type">
-            <button type ="button" onclick="closeModal()" class="close">&times</button>
-            <div class="modalHeader">
-                <span class="number">${pokemon.number}</span>
-                <span class="name">${pokemon.name}</span>
-                <ol>
-                    <li>Type 1</li>
-                    <li>tipe 2</li>
+        <div class="modal-content ${pokemon.type}">
+            <button type ="button" onclick="closeModal()" class="closeBtn">&times</button>
+            <div class="modal-header">
+                <span class="modal-name">${pokemon.name}</span>
+                <span class="modal-number">#${pokemon.number}</span>
+                <ol class="modal-types">
+                    ${pokemon.types.map((type) => `<li class="modal-type ${type}">${type}</li>`).join('')}
                 </ol>
             </div>
             <img src="${pokemon.photo}">
+            <div class="general-info">
+                <div class="attributes">
+                    <h3>Attributes</h3>
+                    <span class="pokemon-height">Height: ${pokemon.height}m</span>
+                    <span class="pokemon-weight">Weight: ${pokemon.weight}kg</span>
+                </div>
+                <ul class="moves">
+                    <h3>Moves</h3>
+                    ${pokemon.moves.map((move) => `<li>${move}</li>`).join('')}
 
-            <ul class="moves">
-                <li>move1</li>
-                <li>move2</li>
-
-            <ul class="abilities">
-                <li>ab1</li>
-                <li>ab2</li>
-                <li>ab3</li>
-            </ul>
+                </ul>
+                <ul class="abilities">
+                    <h3>Abilities</h3>
+                    ${pokemon.abilities.map((ability) => `<li>${ability}</li>`).join('')}
+                </ul>
+            </div>
 
         </div>
     `

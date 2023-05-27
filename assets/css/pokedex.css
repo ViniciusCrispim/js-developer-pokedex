@@ -86,11 +86,24 @@
     border-radius: 1rem;
 }
 
+.pokemon .modalBtn {
+    position: relative;
+    font-size: .8rem;
+    padding: 0;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
 .pokemon .number {
+    position: absolute;
+    margin-left: 11.5rem;
     color: #000;
     opacity: .3;
     text-align: right;
-    font-size: .625rem;
+    font-size: .8rem;
 }
 
 .pokemon .name {
